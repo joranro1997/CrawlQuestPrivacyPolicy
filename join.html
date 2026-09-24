@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Únete a CrawlQuest</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #FDF6E9;
+            color: #3B2A1A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 36px 28px;
+            border-radius: 20px;
+            border: 2px solid #E8D5B7;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 6px 20px rgba(92, 64, 51, 0.12);
+        }
+        h1 {
+            font-size: 30px;
+            margin: 0 0 8px;
+        }
+        p {
+            margin: 6px 0;
+            color: #6B4E3D;
+        }
+        .code {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 6px;
+            margin: 20px 0;
+            padding: 16px;
+            background: #FEF1CC;
+            border-radius: 14px;
+        }
+        .button {
+            display: block;
+            background: #FDBB30;
+            color: #3B2A1A;
+            padding: 14px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .button.secondary {
+            background: white;
+            border: 2px solid #E8D5B7;
+        }
+        .hint {
+            font-size: 14px;
+            color: #8B6F47;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CrawlQuest</h1>
+        <p>Te han invitado a una ruta de bares. / You've been invited to a bar crawl.</p>
+        <div class="code" id="code">······</div>
+        <a class="button" id="open" href="#">Abrir en la app / Open in the app</a>
+        <a class="button secondary" href="https://apps.apple.com/app/id6755448068">App Store</a>
+        <a class="button secondary" href="https://play.google.com/store/apps/details?id=com.crawlquest.app">Google Play</a>
+        <p class="hint">Si no tienes la app, descárgala y únete con este código en «Unirse a Sesión».<br>
+            No app yet? Download it and enter this code in "Join Session".</p>
+    </div>
+
+    <script>
+        // El código llega como ?code=ABC234 (o, por compatibilidad, como último tramo de la ruta)
+        const params = new URLSearchParams(window.location.search);
+        const lastPart = window.location.pathname.split('/').filter(Boolean).pop() || '';
+        const raw = params.get('code') || (lastPart.endsWith('.html') ? '' : lastPart);
+        const code = /^[A-Z0-9]{6}$/i.test(raw) ? raw.toUpperCase() : '';
+
+        if (code) {
+            document.getElementById('code').textContent = code;
+            const deepLink = 'crawlquest://join?code=' + code;
+            document.getElementById('open').href = deepLink;
+
+            // En el móvil intenta abrir la app; si sigue la página a la vista, no estaba instalada: a la tienda
+            const ua = navigator.userAgent || '';
+            const isIOS = /iPad|iPhone|iPod/.test(ua);
+            const isAndroid = /android/i.test(ua);
+            if (isIOS || isAndroid) {
+                window.location.href = deepLink;
+                setTimeout(function () {
+                    if (document.hidden) return;
+                    window.location.href = isIOS
+                        ? 'https://apps.apple.com/app/id6755448068'
+                        : 'https://play.google.com/store/apps/details?id=com.crawlquest.app';
+                }, 2000);
+            }
+        } else {
+            document.getElementById('code').textContent = '—';
+            document.getElementById('open').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
