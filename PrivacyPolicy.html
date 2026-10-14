@@ -65,7 +65,7 @@
     <div class="container">
         <p class="lang"><a href="PoliticaDePrivacidad.html">Español</a></p>
         <h1>CrawlQuest Privacy Policy</h1>
-        <p class="last-updated">Last updated: 1 October 2026</p>
+        <p class="last-updated">Last updated: 14 October 2026</p>
 
         <h2>1. Who is responsible</h2>
         <p>
@@ -89,25 +89,45 @@
 
         <h3>2.2. Session data</h3>
         <ul>
-            <li>The name you choose to play with and, if you decide to upload one, your profile photo.</li>
+            <li>The name you choose to play with and, if you decide to upload one, your profile photo. Before
+                uploading the photo, the app removes the data it may carry inside, such as where it was taken, unless
+                it can't read the file (for example, if it's damaged): then it is uploaded as it is. It is stored under
+                a random name, which contains nothing about you, at a public address: anyone with its link can see it.
+                With a version earlier than 1.1.0, the photo is uploaded as it is, with your internal identifier in its
+                name (your account's, if you have one).</li>
             <li>The session code and settings: stops, active rules and the bars on the route.</li>
             <li>Your progress in the session: drinks, points and penalties.</li>
             <li>The messages you write in the session chat.</li>
             <li>If you have Premium, the rules and punishments you create, which are stored on your device or,
                 if you are signed in, in your account, and copied to the sessions where you choose to use
                 them.</li>
+            <li>If you have Premium and are signed in, the routes you save to your account to repeat them: their
+                name, their bars (for each one, only its Google identifier) and the number of drinks.</li>
+            <li>If you have Premium and are signed in, when you finish a route you created (or the route of an event
+                you organise) we store its statistics in your account: the code, the duration, the number of
+                participants, stops and drinks, each participant's name and points, and the bars, with their name and
+                address. Only you can see them.</li>
         </ul>
 
         <h3>2.3. Location</h3>
         <p>
             With your permission, and only while the app is open, we use your device's precise location to
             find nearby bars and build the route and, during an active session, to show your position on the
-            map to the other participants. CrawlQuest does not use your location in the background.
+            map to the other participants. CrawlQuest does not use your location in the background. Events use
+            it differently: see section 3.4.
+        </p>
+        <p>
+            To build the route, the app sends your position to Google Maps and asks it for the bars around you, with
+            their rating, number of reviews and opening hours: that way it leaves out the ones that will be closed when
+            you reach each of them and gives priority to the most popular of the nearest ones. For a saved route or an
+            event's fixed route, it asks for its bars' opening hours to remove the ones that will be closed. We don't
+            store the opening hours, ratings or reviews.
         </p>
         <p>
             Your latest position is only kept while the session lasts: it is deleted automatically when the
-            session ends and, in any case, 24 hours after its last update. The point where the route was
-            created is also deleted when the session ends.
+            session ends and, in any case, 24 hours after its last update. Since version 1.1.0 we don't store the
+            point where the route was created; with an earlier version, it is kept until the session ends and then
+            deleted.
         </p>
 
         <h3>2.4. Purchases</h3>
@@ -121,8 +141,10 @@
 
         <h3>2.5. Notifications</h3>
         <p>
-            If you allow notifications, we store your device's notification identifier to let you know about
-            activity that concerns you. You can turn them off at any time in your device settings.
+            If you are signed in and allow notifications, we store your device's notification identifier to let
+            you know what happens at your events and, if we restrict your account, to tell you
+            (section 3.5). Without an account you don't get notifications. You can turn them off at any time in
+            your device settings.
         </p>
 
         <h3>2.6. Crash diagnostics</h3>
@@ -130,6 +152,11 @@
             When the app fails, a technical report is sent to Sentry: the error, the device model, the system
             and app versions, and screen performance data. These reports do not include your name, email,
             messages or location.
+        </p>
+        <p>
+            When someone reports a chat message, blocks someone in the chat or reports an event or a person, the
+            app also alerts us through Sentry so that we can review it in time. That alert only carries internal
+            identifiers (and, for events, the reason), never the reported content.
         </p>
 
         <h3>2.7. Advertising</h3>
@@ -155,18 +182,201 @@
 
         <h3>2.8. Preferences</h3>
         <p>
-            Your language and other app preferences are stored on your own device.
+            Your language and other app preferences are stored on your own device (if you are signed in and allow
+            notifications, your language is also stored with its identifier: section 3.5). So are the city you
+            choose on the events board and the draft of an event you are organising.
         </p>
 
-        <h2>3. Why we use your data and on what legal basis</h2>
+        <h2 id="events">3. Events</h2>
+        <p>
+            Events are bar crawls with a day, a time and a meeting point that people who don't know each other
+            can join. You can browse the "Nearby" board without an account; to join or organise an event you
+            need to sign in. The rules of conduct are in the <a href="EventRules.html">event rules</a>.
+        </p>
+
+        <h3>3.1. Your event profile</h3>
+        <p>
+            The first time you join or organise an event, you choose a nickname and, if you like, a photo. They
+            are your public event profile: they aren't used in your regular routes. Before uploading the photo,
+            the app removes the data it may carry inside, such as where it was taken, unless it can't read the file
+            (for example, if it's damaged): then it is uploaded as it is. It is stored under a random name, which
+            contains nothing about you, at a public address: anyone with its link can see it.
+        </p>
+        <p>
+            At that point you also declare that you are 18 or over and accept the event rules. We store in your
+            profile when you made the declaration, which version of the rules you accepted and when. If the rules
+            change, the app asks you to accept them again. Your profile also stores how many of the events you have
+            organised have finished (cancelled ones don't count) and, if we have restricted your account, until
+            when and why (section 3.6).
+        </p>
+
+        <h3>3.2. What we store about each event</h3>
+        <ul>
+            <li>What the organiser enters: title, description, cover (one of the app's 8), day, time and time
+                zone, type of event, capacity, number of bars and, if the route is fixed or saved, its bars.</li>
+            <li>The meeting point, which the app chooses from bars and public places on Google Maps (a square, a
+                station, a park…), never an address: its Google identifier, its name, its address and its
+                coordinates. Also the area (neighbourhood and city) and a point between 200 and 500 metres from the
+                place, which is only used to work out the approximate distance and is never shown.</li>
+            <li>For each person who signs up: whether they are going, have requested a spot, have left, their
+                request didn't go through or they were removed from the event; whether they came with the invitation
+                link; how many times they have signed up again; a copy of their nickname and photo; and the date of
+                each step. If the organiser removes from the open route of a private event someone with an account
+                who had entered with the code without signing up, we also store that they were removed, with the
+                name they entered with.</li>
+            <li>The event's status (scheduled, under way, finished or cancelled, with its reason) and, once it
+                starts, its route, which is a CrawlQuest session like any other.</li>
+        </ul>
+
+        <h3>3.3. Who sees what</h3>
+        <ul>
+            <li><strong>Anyone, even without an account</strong>, for public events: title, cover, description,
+                day and time, area and approximate distance, number of bars, how many people are going and the
+                capacity, whether approval is needed and the organiser's nickname.</li>
+            <li><strong>With an account</strong>, for public events and, for private ones, only with their link:
+                also the organiser's photo, how many of their events have finished and the month and year they
+                started using CrawlQuest.</li>
+            <li><strong>People who have requested a spot</strong>: the above and their own request. Of who's
+                going, only the number.</li>
+            <li><strong>People going and the organiser</strong>: also the exact meeting place with its address
+                and map, the fixed or saved route, who's going (nicknames and photos) and, for private events, the
+                invitation link. Once the event starts, also who has already joined and its route: participants,
+                chat, stops and any locations being shared.</li>
+            <li><strong>Only the organiser</strong>: the requests, with the nickname and photo of each person
+                requesting a spot, when they started using CrawlQuest and whether they came with the invitation
+                link.</li>
+        </ul>
+        <p>
+            This is enforced by the database and the server functions, not just by the app. If you have blocked
+            someone or they have blocked you, neither of you sees the other's events, except those that were already
+            under way or over and that you were already going to. Finished or cancelled events can only be seen by
+            the organiser and the people who were going.
+        </p>
+        <p>
+            The route of a public event, and of a private event without code entry, is closed: only the organiser
+            and the people going can see it and enter it, with their account. There, everyone appears with their
+            event nickname and photo, and with an identifier specific to that event instead of their account's,
+            except the organiser (section 3.7). For a private event with code entry, the route is open, like a
+            regular route: anyone with the code can enter, even without an account, and everyone appears with the
+            name and photo on their phone.
+        </p>
+
+        <h3>3.4. Location at events</h3>
+        <ul>
+            <li><strong>To find events</strong>: on the board you can use your approximate location or choose a
+                city. Your position is rounded to about 1 km on your phone before it is sent, is only used to work
+                out distances and is not stored. We look up the city on Google Maps and it is remembered on your
+                device, with its position also rounded.</li>
+            <li><strong>To organise</strong>: you can search for bars and places near you. Your position, rounded
+                to about 1 km, is used for that search on Google Maps and we don't store it.</li>
+            <li><strong>The meeting point</strong>: only the organiser and the people going see the exact place;
+                everyone else sees the area and an approximate distance (section 3.3). The exception is the open route
+                of a private event with code entry: once it starts, it begins at the meeting point and anyone with the
+                code can see it (section 3.7). The server can't check the place or the route's bars with Google:
+                someone who modifies the app could put another place. If something doesn't add up, don't go and
+                report it.</li>
+            <li><strong>During the route</strong>: at public events, your live location is off until you switch it
+                on; at private events it is on, as in a regular route, and you can also switch it off. If you
+                switch it off, the last position you shared stays visible until the route ends. It is deleted as in
+                any route (section 2.3).</li>
+        </ul>
+
+        <h3>3.5. Notices and notifications</h3>
+        <p>
+            We let you know what happens at your events: requests and replies, changes to the time, meeting point
+            or route, cancellations, the reminder 1 hour before and the notice that it has started, which the
+            organiser can send again to anyone who hasn't joined yet. The organiser is also told when it's time to
+            start and if we remove their event. If you're removed from an event, we only tell you in the app, and if
+            we restrict your account, we let you know too. None of them are promotional. We store each notice on the
+            server (its type, the event it refers to with its title, day and time, whether you have read it and, if
+            it was sent as a notification, which device it went to and whether it arrived) to show it to you in the
+            app.
+        </p>
+        <p>
+            If you are signed in and allow notifications, we store your device's notification identifier with its
+            system (iOS or Android), the app's language, to write to you in your language, the app's version, to
+            know which phone can receive event notices, and when it was last registered. We only store one device
+            per account: if you use the app on two, notifications go to the last one that registered. A phone
+            registers when you allow notifications and, if they're already allowed, when you launch the app, sign
+            in or change the language (one with a version older than 1.1.0 doesn't take the registration away from
+            one with 1.1.0). We delete it when you sign out, except on versions older than 1.1.0 or if deleting it
+            fails at that moment: then it stays until another device replaces it or it stops working. If it stops
+            working, we deactivate it.
+        </p>
+        <p>
+            To deliver the notification, the server sends Expo your device's identifier, the title and text of the
+            notice in your language (for example, the event's title and time) and the internal identifiers of the
+            notice, the event and its route. Expo delivers it through Google Firebase Cloud Messaging on Android
+            and Apple Push Notification service on iPhone and iPad.
+        </p>
+
+        <h3>3.6. Blocks, reports and moderation</h3>
+        <p>
+            <strong>Blocks.</strong> You can block someone from an event's page, the list of who's going, the
+            route's participants or the chat. If you are signed in and that person has an account, the block is
+            stored on the server: who blocks whom, when, and a copy of the name and event photo shown where you
+            blocked them, for your "Blocked people" list. Neither of you will see the other's events or be able to
+            sign up for them, except those already under way or over that you're already going to, and on an
+            event's route you won't see each other's messages. We don't tell them. If you block someone on a route,
+            the block is also stored on your device, which hides their messages (that one can't be removed from the
+            app); for someone playing without an account, it is only stored there.
+        </p>
+        <p>
+            <strong>Reports.</strong> You can report an event or a person with a reason and, if you like, a detail
+            of up to 300 characters. We store who reports, which event (and the organiser's account) or whom (and,
+            if there is one, at which event), the reason, the detail, how we resolved it and a copy of what was
+            reported: for an event, its title, description, cover, day and time, whether it is public or private
+            and the organiser's nickname; for a person, the name and event photo that were shown. We don't tell
+            anyone who reported. While a report is pending, we keep that photo even if the person
+            changes it, unless they delete their account. Chat reports work as explained in section 5.1.
+        </p>
+        <p>
+            <strong>Moderation.</strong> Titles, descriptions and nicknames go through an automatic filter on the
+            server that rejects most links, email addresses, phone numbers, @usernames and prices, as well as hate
+            slurs and other banned words. A person reviews every report within 24 hours. If three different people
+            report an event, it is taken off the board until we have reviewed it, and meanwhile only the organiser,
+            the people going and those who have requested a spot can see it. If something breaks the rules, we can
+            remove an event (the organiser sees the reason and, if there is one, a note from us) or restrict an
+            account for a period of time: it can't organise or join events, its scheduled events are cancelled, it
+            is taken off other people's events and it gets a notice with the date and the reason. How to appeal is
+            explained in the <a href="EventRules.html">event rules</a>.
+        </p>
+
+        <h3 id="regular-routes">3.7. What you should know about regular routes</h3>
+        <p>
+            <strong>Your regular routes aren't protected like event routes: don't share the code or your location
+            with strangers.</strong>
+        </p>
+        <ul>
+            <li>So that people can play without an account, regular routes aren't closed in the database: with
+                technical knowledge, anyone can read their participants (with their account's internal identifier,
+                if they have one), their stops, their chat and live locations, which on a regular route are shared
+                whenever the app has location permission. They can also read the internal identifier of whoever
+                created the route (their account's, if they have one) and, if it was created with a version earlier
+                than 1.1.0, until it ends, the point where it was created: if you built it around you, your position at
+                that moment. The same applies to the open route of a private event.</li>
+            <li>People going to your event can see, with technical knowledge, your account's internal identifier
+                on the event's route and use it to find your regular routes.</li>
+            <li>On the open route of a private event, anyone who can see the event's page could link your
+                nickname and photo as organiser to your account's identifier, and the people going could link
+                someone else's nickname to theirs by watching when each person enters the route.</li>
+        </ul>
+
+        <h2>4. Why we use your data and on what legal basis</h2>
         <ul>
             <li><strong>Providing the service</strong> (performance of a contract): creating and sharing
-                sessions, building routes, the leaderboard, the chat, and unlocking and restoring your
-                purchases.</li>
+                sessions, building routes, the leaderboard, the chat, unlocking and restoring your purchases, and
+                events: publishing them, signing you up, showing each person what they're allowed to see and
+                notifying you.</li>
             <li><strong>Location and notifications</strong> (consent): requested by the operating system; you
                 can withdraw them at any time in your device settings.</li>
             <li><strong>Diagnostics and security</strong> (legitimate interest): finding and fixing errors and
                 protecting the service against abuse.</li>
+            <li><strong>Knowing whether the board works</strong> (legitimate interest): counting how many sign-ups
+                come from the board and how many with an invitation link.</li>
+            <li><strong>Moderating events and the chat</strong> (legitimate interest and legal obligations):
+                filtering texts, reviewing reports, removing what breaks the rules, restricting accounts and
+                keeping reports for one year.</li>
             <li><strong>Advertising</strong> (legitimate interest or consent, depending on your region):
                 showing the ads that fund the free version. On iPhone and iPad, ads are only personalised if
                 you allow tracking. In the European Economic Area, the United Kingdom and Switzerland, Google
@@ -176,100 +386,191 @@
                 purchases.</li>
         </ul>
 
-        <h2>4. Who we share it with</h2>
-        <h3>4.1. Other participants in your session</h3>
+        <h2>5. Who we share it with</h2>
+        <h3>5.1. Other participants in your session</h3>
         <p>
             They see your name, profile photo, progress and score, your chat messages and, while the session
-            is active, your position on the map.
+            is active, your position on the map. On the closed route of an event they see you with your event
+            nickname and photo, and on event routes they only see your position if you share it: if you switch it
+            off, the last one stays visible until the route ends (section 3.4). What each person sees at events is
+            explained in section 3.3.
         </p>
         <p id="chat-rules">
             Insults, harassment, threats, discrimination and sexual or violent content are not allowed in the chat.
+            When you send or edit a message, the app covers some hate slurs with asterisks.
             Any participant can report a message or block whoever sent it by pressing and holding it. Every report
             or block reaches us as a report with who made it, a copy of the message and who sent it, and we review
-            it within 24 hours: we remove content that breaks the rules and ban whoever posted it. The list of people
-            you have blocked is stored only on your device.
+            it within 24 hours: we remove content that breaks the rules and ban whoever posted it. The people you
+            block are stored on your device and, if you are signed in and the other person also has an account,
+            on the server too, and the block also applies to events (section 3.6).
         </p>
-        <h3>4.2. Providers that process data on behalf of CrawlQuest</h3>
+        <h3>5.2. Providers and third-party services</h3>
         <ul>
             <li><strong>Supabase</strong>: database, profile photo storage and sign-in. Servers in the European
-                Union (Ireland).</li>
-            <li><strong>Google</strong>: Google Maps Platform to find bars and calculate routes, AdMob for
-                advertising, and Sign in with Google.</li>
-            <li><strong>Apple</strong>: Sign in with Apple, in-app purchases and maps on iPhone.</li>
+                Union (Ireland). It also runs the server functions that send notifications and delete
+                photos.</li>
+            <li><strong>Google</strong>: Google Maps Platform to find bars, places and cities and calculate
+                routes, AdMob for advertising, Sign in with Google and Firebase Cloud Messaging to deliver
+                notifications on Android. For advertising, Google also uses your data for its own purposes, under
+                <a href="https://policies.google.com/technologies/partner-sites?hl=en-GB">its own policy</a>.</li>
+            <li><strong>Apple</strong>: Sign in with Apple, in-app purchases, maps on iPhone and Apple Push
+                Notification service to deliver notifications on iPhone and iPad.</li>
             <li><strong>Discord</strong>: Sign in with Discord, only if you choose it.</li>
-            <li><strong>Sentry</strong>: crash reports.</li>
-            <li><strong>Expo</strong>: push notification delivery.</li>
+            <li><strong>Sentry</strong>: crash reports and report alerts. Servers in the European Union (Frankfurt,
+                Germany).</li>
+            <li><strong>Expo</strong>: push notification delivery. It receives your device's notification
+                identifier and the text of each notice (section 3.5).</li>
+            <li><strong>GitHub</strong>: hosts these pages, including the invitation link pages, and logs, for
+                security, the IP address of whoever opens them.</li>
         </ul>
         <p>
-            Some of these providers may process data outside the European Economic Area. Such transfers rely
-            on the European Commission's standard contractual clauses or the EU-US Data Privacy Framework.
+            Expo, Google, Apple, Discord and GitHub are US companies and may process your data there (Expo, every
+            time you get a notification). Expo (650 Industries, Inc.), Google LLC, Discord, Inc. and GitHub are
+            certified under the EU-US Data Privacy Framework and its UK and Swiss extensions. The European Commission
+            recognises that certified companies provide an adequate level of protection (adequacy decision of
+            10 July 2023), and the UK and Switzerland recognise the extensions: transfers to those four rely on these
+            decisions. Apple isn't on the Framework's list: according to its privacy policy, its transfers of data
+            from the European Economic Area, the UK and Switzerland rely on the Commission's standard contractual
+            clauses. Supabase (Supabase Pte. Ltd., based in Singapore) and Sentry (Functional Software, Inc., based in
+            the US) store your data in the European Union; if it is accessed from outside, Supabase relies on the
+            standard contractual clauses in its data processing agreement, and Sentry is certified under the
+            Framework. We checked this on the Framework's official list (dataprivacyframework.gov) on 14 October 2026.
+            If you'd like a copy of these safeguards, write to us.
         </p>
-        <h3>4.3. We do not sell your data</h3>
+        <h3>5.3. We do not sell your data</h3>
         <p>
-            We do not sell, rent or hand over your personal data to third parties for their own purposes.
+            We do not sell or rent your personal data. Apart from what Google collects for advertising
+            (section 2.7), we don't hand it over to anyone for their own purposes.
+        </p>
+        <h3>5.4. Authorities</h3>
+        <p>
+            If the law requires it, or in cases of child sexual abuse or danger to someone, we share the necessary
+            data with the authorities.
         </p>
 
-        <h2>5. How long we keep it</h2>
+        <h2>6. How long we keep it</h2>
         <ul>
-            <li><strong>Location during a session</strong>: until the session ends and, at most, 24 hours after
+            <li><strong>Location during a session</strong>: until the session ends and, in any case, 24 hours after
                 its last update.</li>
             <li><strong>Unfinished sessions</strong>: closed automatically after 6 hours if they never start
                 and after 18 hours if they are in progress.</li>
-            <li><strong>Session history, chat, account and purchases</strong>: for as long as you keep your
-                account or until you ask us to delete it, except for anything we must keep by law.</li>
-            <li><strong>Chat reports</strong>: for as long as needed to review them and one year at most.</li>
+            <li><strong>Regular routes</strong>: 30 days after the route ends, its bars' Google data is deleted: the
+                name, address, coordinates and photo of each stop, and the name and address of the bars in your
+                statistics. Only each bar's Google identifier is kept: when you open that route in your history, the
+                app asks Google for its name and address, and doesn't store them. 12 months after the route ends, the
+                whole route is deleted: its participants with their name and progress, its chat, its stops and your
+                statistics for that route. Chat reports from that route keep their copy. If you have an account, your
+                participation, messages and statistics are deleted sooner if you delete the account. If you'd like us
+                to delete what you played without an account sooner, ask us by email, telling us the route's code, the
+                day and the name you used. Event routes are deleted sooner, as explained below.</li>
+            <li><strong>Account and purchases</strong>: for as long as you keep your account or until you ask us to
+                delete it, except for anything we must keep by law.</li>
+            <li><strong>An event's Google data</strong>: the name, address and coordinates of the meeting point and
+                of the route's bars, the area and the approximate point are deleted 7 days after the event ends or
+                is cancelled. On that day the stops of the event's route and its bars in your statistics are
+                deleted too. Only each place's Google identifier is kept.</li>
+            <li><strong>Events</strong>: 30 days after the event ends or is cancelled, the event, who was going and
+                who requested a spot, its notices, its route with its participants, chat and locations, and your
+                statistics for that route are deleted. Chat reports from that route keep their copy.</li>
+            <li><strong>Event routes that never start</strong>: if something fails when starting an event, the app
+                deletes the half-made route and, if it can't, it is deleted automatically after 24 hours.</li>
+            <li><strong>Event notices</strong>: 30 days after they are created.</li>
+            <li><strong>Event profile</strong>: for as long as you keep your account. Blocks, until you remove them
+                or one of the two accounts is deleted.</li>
+            <li><strong>Notification identifier</strong>: until you sign out on that device or another device
+                replaces it (section 3.5). If it stops working, it is deactivated and deleted after 30 days.</li>
+            <li><strong>Photos</strong>: photos no longer used by any profile, event or route are deleted once
+                they are more than 30 days old. If you change or remove your event photo, the previous one is
+                deleted straight away if it's no longer used anywhere and, if it's still in use (for example, at a
+                finished event), once it's no longer used and is more than 30 days old.</li>
+            <li><strong>Chat and event reports</strong>: one year after they are made.</li>
             <li><strong>Crash reports</strong>: for Sentry's retention period, 90 days at most.</li>
         </ul>
+        <p>
+            Automatic deletions run once a day (location deletion and the closing of sessions, every hour), so each
+            period can run up to a day longer (or up to an hour).
+        </p>
 
-        <h2>6. Your rights</h2>
+        <h2>7. Your rights</h2>
         <p>
             You can request access to your data, its correction or deletion, object to or restrict its
             processing, and receive it in a portable format. You can also withdraw the location, notification
             and tracking permissions at any time in your device settings.
         </p>
+        <p>
+            <strong>Objecting.</strong> You can object at any time to what we do on the basis of legitimate interest
+            (crash diagnostics, security, moderation, knowing whether the board works and, depending on your
+            region, advertising) by writing to us.
+        </p>
         <p id="delete-account">
             <strong>Deleting your account.</strong> If you are signed in, you can delete your account and its
-            data from the app, in Profile → Account → Delete account. The account, recorded purchases, your own
-            rules, statistics, friends and your participation in sessions, including your chat messages, are
-            deleted straight away, and your profile, photo and history are removed from your device. If you
-            have Premium, also cancel the subscription in the App Store or Google Play so that it does not renew.
-            If you cannot access the app, ask us by email as described below.
+            data from the app, in Profile → Account → Delete account. First, the events you have scheduled as
+            organiser are cancelled and we let everyone who was going or had requested a spot know; if you have
+            one under way, its route ends. Then the account, recorded purchases, your own rules, saved routes,
+            statistics, friends, your event profile, your spots and requests at other people's events, your blocks
+            and other people's blocks on you, your notices, your notification identifier and your participation
+            in sessions, including event sessions, with your chat messages, are deleted straight away. Your profile,
+            photo and history are removed from your device.
+        </p>
+        <p>
+            When you delete your account, from the app or by asking us by email, your public profile and your
+            photos are also deleted: your event photo, the ones from your routes that you uploaded while signed in
+            and the ones you uploaded as a guest on routes that moved to your account when you signed in, if nobody
+            else uses them. They are deleted straight away, although a cached copy may still be visible for up to
+            5 minutes for the event photo and up to an hour for route photos. Other route photos you uploaded as a
+            guest are deleted once they're no longer used, from 30 days after you uploaded them. The events you
+            organised stay in the "Past" list of the people who were going, without your nickname or photo, until
+            they are deleted after 30 days. The reports you made, and
+            those made against you with the copy of what was reported, are kept without your account until they
+            are one year old. The routes you created with your account remain for the other participants, with
+            your account's internal identifier as creator, until they are deleted 12 months after they end; event
+            routes, after 30 days.
+        </p>
+        <p>
+            If you have Premium, also cancel the subscription in the App Store or Google Play so that it does not
+            renew. If you cannot access the app, ask us by email as described below.
         </p>
         <p>
             To exercise these rights, or to delete your account and all of its data, write to
             <a href="mailto:midwayofdraenor@gmail.com">midwayofdraenor@gmail.com</a> from the email address
             linked to your account or telling us the name you use in the app. We reply within one month at
-            most. If you disagree with our reply, you can lodge a complaint with the Spanish Data Protection
-            Agency (<a href="https://www.aepd.es">www.aepd.es</a>) or your local supervisory authority.
+            most. You can lodge a complaint at any time with the Spanish Data Protection Agency
+            (<a href="https://www.aepd.es">www.aepd.es</a>) or your local supervisory authority.
         </p>
 
-        <h2>7. Security</h2>
+        <h2>8. Security</h2>
         <p>
-            All communication with our servers is encrypted. The database enforces per-user access rules: each
-            person can only read their own data and that of the sessions they take part in. Even so, no system
-            is completely secure.
+            All communication with our servers is encrypted. The data in your account (purchases, your own rules,
+            saved routes, statistics and notices) can only be read by you. Events, event profiles and blocks can
+            only be read through server functions that show each person what they're allowed to see, and reports
+            can't be read from the app. The route of a public event, and of a private event without code entry,
+            is closed to everyone except the organiser and the people going. Regular routes and the open route of
+            a private event are not (section 3.7). Even so, no system is completely secure.
         </p>
 
-        <h2>8. Minors</h2>
+        <h2>9. Minors</h2>
         <p>
             CrawlQuest is about drinking and is intended only for people aged 18 or over, or the legal drinking
             age in your country if higher. We do not knowingly collect data from minors; if we find out that we
-            have, we will delete it.
+            have, we will delete it. To join or organise an event you have to declare that you are 18 or over,
+            and anyone can report someone who looks underage: in the app, with their account, or by email.
         </p>
 
-        <h2>9. Drink responsibly</h2>
+        <h2>10. Drink responsibly</h2>
         <p>
             CrawlQuest is a game for having a good time with friends. Drink in moderation, respect local laws
-            and never drive after drinking.
+            and never drive after drinking. At events, also follow their <a href="EventRules.html">rules</a>:
+            non-alcoholic drinks count at every stop and, at public events, the route sets at most 2 drinks per
+            stop.
         </p>
 
-        <h2>10. Changes to this policy</h2>
+        <h2>11. Changes to this policy</h2>
         <p>
             If we change this policy, we will publish the new version on this page with its update date.
         </p>
 
         <div class="contact">
-            <h2>11. Contact</h2>
+            <h2>12. Contact</h2>
             <p>
                 For any question about this policy or your data:<br>
                 <strong>Email:</strong> <a href="mailto:midwayofdraenor@gmail.com">midwayofdraenor@gmail.com</a>

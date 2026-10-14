@@ -65,7 +65,7 @@
     <div class="container">
         <p class="lang"><a href="PrivacyPolicy.html">English</a></p>
         <h1>Política de Privacidad de CrawlQuest</h1>
-        <p class="last-updated">Última actualización: 1 de octubre de 2026</p>
+        <p class="last-updated">Última actualización: 14 de octubre de 2026</p>
 
         <h2>1. Quién es el responsable</h2>
         <p>
@@ -90,12 +90,23 @@
 
         <h3>2.2. Datos de las sesiones</h3>
         <ul>
-            <li>El nombre que eliges para jugar y, si decides subirla, tu foto de perfil.</li>
+            <li>El nombre que eliges para jugar y, si decides subirla, tu foto de perfil. Antes de subir la foto, la
+                aplicación le quita los datos que puede llevar dentro, como el lugar donde se hizo, salvo que no entienda
+                el archivo (por ejemplo, si está dañado): entonces se sube tal cual. Se guarda con un nombre al azar, que
+                no lleva ningún dato tuyo, en una dirección pública: cualquiera que tenga su enlace puede verla. Con una
+                versión anterior a la 1.1.0, la foto se sube tal cual y con tu identificador interno en su nombre (el de
+                tu cuenta, si la tienes).</li>
             <li>El código y la configuración de la sesión: paradas, reglas activas y bares de la ruta.</li>
             <li>Tu progreso en la sesión: cervezas, puntos y penalizaciones.</li>
             <li>Los mensajes que escribes en el chat de la sesión.</li>
             <li>Si tienes Premium, las reglas y castigos que creas, que se guardan en tu dispositivo o, si has
                 iniciado sesión, en tu cuenta, y se copian a las sesiones en las que decides usarlos.</li>
+            <li>Si tienes Premium y has iniciado sesión, las rutas que guardas en tu cuenta para repetirlas: su
+                nombre, sus bares (de cada uno, solo su identificador en Google) y el número de cervezas.</li>
+            <li>Si tienes Premium y has iniciado sesión, cuando terminas una ruta que has creado (o la de un evento que
+                organizas) guardamos en tu cuenta sus estadísticas: el código, la duración, el número de participantes,
+                de paradas y de cervezas, el nombre y los puntos de cada participante y los bares, con su nombre y su
+                dirección. Solo las puedes ver tú.</li>
         </ul>
 
         <h3>2.3. Ubicación</h3>
@@ -103,12 +114,20 @@
             Con tu permiso, y solo mientras la aplicación está abierta, usamos la ubicación precisa de tu
             dispositivo para buscar bares cercanos y generar la ruta y, durante una sesión activa, para
             mostrar tu posición en el mapa a los demás participantes. CrawlQuest no usa tu ubicación en
-            segundo plano.
+            segundo plano. En los eventos la usamos de otra forma: lo explicamos en la sección 3.4.
+        </p>
+        <p>
+            Para generar la ruta, la aplicación manda tu posición a Google Maps y le pide los bares de alrededor, con
+            su valoración, su número de reseñas y su horario: así deja fuera los que estarán cerrados cuando llegues a
+            cada uno y da prioridad a los más populares de entre los más cercanos. En una ruta guardada o en la ruta
+            fija de un evento, le pide el horario de sus bares para quitar los que estarán cerrados. No guardamos los
+            horarios, las valoraciones ni las reseñas.
         </p>
         <p>
             Tu última posición se guarda solo mientras dura la sesión: se borra automáticamente cuando la
-            sesión termina y, en cualquier caso, a las 24 horas de su última actualización. El punto desde
-            el que se creó la ruta también se borra cuando la sesión termina.
+            sesión termina y, en cualquier caso, a las 24 horas de su última actualización. Desde la versión 1.1.0
+            no guardamos el punto desde el que se creó la ruta; con una versión anterior, se guarda hasta que la
+            sesión termina y entonces se borra.
         </p>
 
         <h3>2.4. Compras</h3>
@@ -123,9 +142,10 @@
 
         <h3>2.5. Notificaciones</h3>
         <p>
-            Si permites las notificaciones, guardamos el identificador de notificaciones de tu dispositivo
-            para avisarte de lo que ocurre en tus sesiones. Puedes desactivarlas en cualquier momento en los
-            ajustes del dispositivo.
+            Si has iniciado sesión y permites las notificaciones, guardamos el identificador de notificaciones
+            de tu dispositivo para avisarte de lo que pasa en tus eventos y, si restringimos tu cuenta, para
+            decírtelo (sección 3.5). Sin cuenta no recibes notificaciones. Puedes desactivarlas en cualquier
+            momento en los ajustes del dispositivo.
         </p>
 
         <h3>2.6. Diagnóstico de errores</h3>
@@ -133,6 +153,11 @@
             Cuando la aplicación falla, se envía a Sentry un informe técnico: el error, el modelo del
             dispositivo, la versión del sistema y de la aplicación, y datos de rendimiento de las pantallas.
             Estos informes no incluyen tu nombre, tu correo, tus mensajes ni tu ubicación.
+        </p>
+        <p>
+            Cuando alguien denuncia un mensaje del chat, bloquea a alguien en el chat o denuncia un evento o a
+            una persona, la aplicación también nos avisa por Sentry para revisarlo a tiempo. Ese aviso solo
+            lleva identificadores internos (y, en los eventos, el motivo), nunca el contenido denunciado.
         </p>
 
         <h3>2.7. Publicidad</h3>
@@ -160,17 +185,201 @@
 
         <h3>2.8. Preferencias</h3>
         <p>
-            El idioma y otras preferencias de la aplicación se guardan en tu propio dispositivo.
+            El idioma y otras preferencias de la aplicación se guardan en tu propio dispositivo (si has iniciado
+            sesión y permites las notificaciones, el idioma se guarda también con su identificador: sección 3.5).
+            También se quedan en él la ciudad que eliges en el tablón de eventos y el borrador del evento que estés
+            organizando.
         </p>
 
-        <h2>3. Para qué usamos los datos y con qué base legal</h2>
+        <h2 id="eventos">3. Eventos</h2>
+        <p>
+            Los eventos son rutas de bares con día, hora y punto de encuentro a las que se puede apuntar gente
+            que no se conoce. El tablón «Cerca» se puede ver sin cuenta; para apuntarte u organizar hace falta
+            iniciar sesión. Las reglas de convivencia están en las
+            <a href="NormasEventos.html">normas de los eventos</a>.
+        </p>
+
+        <h3>3.1. Tu perfil de los eventos</h3>
+        <p>
+            La primera vez que te apuntas a un evento u organizas uno, eliges un apodo y, si quieres, una foto.
+            Son tu perfil público de los eventos: no se usan en tus rutas normales. Antes de subir la foto, la
+            aplicación le quita los datos que puede llevar dentro, como el lugar donde se hizo, salvo que no entienda
+            el archivo (por ejemplo, si está dañado): entonces se sube tal cual. Se guarda con un nombre al azar, que
+            no lleva ningún dato tuyo, en una dirección pública: cualquiera que tenga su enlace puede verla.
+        </p>
+        <p>
+            En ese momento también declaras que tienes 18 años o más y aceptas las normas de los eventos.
+            Guardamos en tu perfil cuándo hiciste la declaración, qué versión de las normas aceptaste y cuándo.
+            Si las normas cambian, la aplicación te pide que las aceptes de nuevo. El perfil guarda además
+            cuántos de los eventos que has organizado han terminado (los cancelados no cuentan) y, si hemos
+            restringido tu cuenta, hasta cuándo y por qué (sección 3.6).
+        </p>
+
+        <h3>3.2. Qué guardamos de cada evento</h3>
+        <ul>
+            <li>Lo que pone quien organiza: título, descripción, portada (una de las 8 de la aplicación), día,
+                hora y zona horaria, tipo de evento, aforo, número de bares y, si la ruta es fija o guardada, sus
+                bares.</li>
+            <li>El punto de encuentro, que la aplicación elige entre bares y sitios públicos de Google Maps (una
+                plaza, una estación, un parque…), nunca una dirección: su identificador en Google, su nombre, su
+                dirección y sus coordenadas. También la zona (barrio y ciudad) y un punto a entre 200 y 500 metros del
+                sitio, que solo sirve para calcular la distancia aproximada y nunca se enseña.</li>
+            <li>De cada persona apuntada: si va, ha pedido plaza, se ha dado de baja, su solicitud no ha salido
+                adelante o la han sacado del evento; si llegó con el enlace de invitación; cuántas veces ha vuelto a
+                apuntarse; una copia de su apodo y su foto, y las fechas de cada paso. Si quien organiza saca de la
+                ruta abierta de un evento privado a alguien con cuenta que había entrado con el código sin apuntarse,
+                guardamos también que lo ha sacado, con el nombre con el que entró.</li>
+            <li>El estado del evento (programado, en marcha, terminado o cancelado, con su motivo) y, cuando
+                empieza, su ruta, que es una sesión de CrawlQuest como las demás.</li>
+        </ul>
+
+        <h3>3.3. Quién ve qué</h3>
+        <ul>
+            <li><strong>Cualquiera, también sin cuenta</strong>, en los eventos públicos: título, portada,
+                descripción, día y hora, zona y distancia aproximada, número de bares, cuánta gente va y el
+                aforo, si hace falta aprobación y el apodo de quien organiza.</li>
+            <li><strong>Con cuenta</strong>, en los públicos y, en los privados, solo con su enlace: además, la
+                foto de quien organiza, cuántos de sus eventos han terminado y desde qué mes y año usa
+                CrawlQuest.</li>
+            <li><strong>Quien pide plaza</strong>: lo anterior y su propia solicitud. De quién va, solo el
+                número.</li>
+            <li><strong>Quien va y quien organiza</strong>: además, el sitio exacto de encuentro con su dirección
+                y su mapa, la ruta fija o guardada, quién va (apodos y fotos) y, en los privados, el enlace de
+                invitación. Cuando el evento empieza, también quién ha entrado ya y su ruta: participantes, chat,
+                paradas y las ubicaciones que se compartan.</li>
+            <li><strong>Solo quien organiza</strong>: las solicitudes, con el apodo, la foto y desde cuándo usa
+                CrawlQuest quien pide plaza, y si llegó con el enlace de invitación.</li>
+        </ul>
+        <p>
+            Esto lo aplican la base de datos y las funciones del servidor, no solo la aplicación. Si has
+            bloqueado a alguien o te ha bloqueado, ninguno de los dos ve los eventos del otro, salvo los que ya
+            estaban en marcha o habían acabado y a los que ya iba. Los eventos terminados o cancelados solo los ven
+            quien organizaba y quienes iban.
+        </p>
+        <p>
+            La ruta de un evento público, y la de un privado sin entrada con el código, está cerrada: solo
+            pueden verla y entrar quien organiza y quienes van, con su cuenta. Allí cada uno aparece con su
+            apodo y su foto de los eventos, y con un identificador propio de ese evento en lugar del de su
+            cuenta, salvo quien organiza (sección 3.7). En un privado con entrada con el código, la ruta es
+            abierta, como una ruta normal: entra cualquiera que tenga el código, también sin cuenta, y cada uno
+            aparece con el nombre y la foto de su móvil.
+        </p>
+
+        <h3>3.4. Ubicación en los eventos</h3>
+        <ul>
+            <li><strong>Para buscar eventos</strong>: en el tablón puedes usar tu ubicación aproximada o elegir
+                una ciudad. Tu posición se redondea a unos 1 km en el móvil antes de mandarla, solo sirve para
+                calcular distancias y no se guarda. La ciudad la buscamos en Google Maps y se recuerda en tu
+                dispositivo, con su posición también redondeada.</li>
+            <li><strong>Para organizar</strong>: puedes buscar bares y sitios cerca de ti. Tu posición,
+                redondeada a unos 1 km, se usa para esa búsqueda en Google Maps y no la guardamos.</li>
+            <li><strong>El punto de encuentro</strong>: el sitio exacto solo lo ven quien organiza y quienes van;
+                los demás ven la zona y una distancia aproximada (sección 3.3). La excepción es la ruta abierta de un
+                privado con entrada con el código: una vez empezada, sale del punto de encuentro y la puede ver
+                cualquiera que tenga el código (sección 3.7). El servidor no puede comprobar con Google el sitio ni los
+                bares de la ruta: alguien que modifique la aplicación podría poner otro sitio. Si algo no cuadra, no
+                vayas y denúncialo.</li>
+            <li><strong>Durante la ruta</strong>: en los eventos públicos, tu ubicación en directo está apagada
+                hasta que la enciendes con el interruptor; en los privados está encendida, como en una ruta
+                normal, y también la puedes apagar. Si la apagas, la última posición que compartiste se sigue
+                viendo hasta que termina la ruta. Se borra como en cualquier ruta (sección 2.3).</li>
+        </ul>
+
+        <h3>3.5. Avisos y notificaciones</h3>
+        <p>
+            Te avisamos de lo que pasa en tus eventos: solicitudes y respuestas, cambios de hora, de punto de
+            encuentro o de ruta, cancelaciones, el recordatorio de 1 hora antes y el aviso de que ha empezado, que
+            quien organiza puede repetir a quien aún no ha entrado. A quien organiza, además, la hora de empezar y
+            si retiramos su evento. Si te sacan de un evento, te lo decimos solo en la aplicación, y si restringimos
+            tu cuenta, también te avisamos. Ninguno es publicitario. Guardamos cada aviso en el servidor (su tipo, el
+            evento al que se refiere con su título, día y hora, si lo has leído y, si se ha mandado como
+            notificación, a qué dispositivo y si ha llegado) para enseñártelo en la aplicación.
+        </p>
+        <p>
+            Si has iniciado sesión y permites las notificaciones, guardamos el identificador de notificaciones
+            de tu dispositivo con su sistema (iOS o Android), el idioma de la aplicación, para escribirte en tu
+            idioma, la versión de la aplicación, para saber qué móvil puede recibir los avisos de los eventos, y
+            cuándo se registró por última vez. Solo guardamos un dispositivo por cuenta: si usas la aplicación en
+            dos, las notificaciones llegan al último que se ha registrado. Un móvil se registra al permitir las
+            notificaciones y, si ya las tiene permitidas, al arrancar la aplicación, al iniciar sesión y al cambiar el
+            idioma (uno con una versión anterior a la 1.1.0 no le quita el registro a uno con la 1.1.0). Al cerrar
+            sesión lo borramos, salvo con una versión anterior a la 1.1.0 o si en ese momento falla: entonces se
+            queda hasta que lo sustituya otro dispositivo o deje de valer. Si deja de valer, lo desactivamos.
+        </p>
+        <p>
+            Para que la notificación llegue, el servidor manda a Expo el identificador de tu dispositivo, el
+            título y el texto del aviso en tu idioma (por ejemplo, el título del evento y la hora) y los
+            identificadores internos del aviso, del evento y de su ruta. Expo la entrega a través de Google
+            Firebase Cloud Messaging en Android y de Apple Push Notification service en iPhone y iPad.
+        </p>
+
+        <h3>3.6. Bloqueos, denuncias y moderación</h3>
+        <p>
+            <strong>Bloqueos.</strong> Puedes bloquear a alguien desde la ficha de un evento, la lista de quién
+            va, los participantes de la ruta o el chat. Si has iniciado sesión y esa persona tiene cuenta, el
+            bloqueo se guarda en el servidor: quién bloquea a quién, cuándo, y una copia del nombre y de la foto
+            de los eventos que se veían donde la bloqueaste, para tu lista de «Personas bloqueadas». Ninguno de
+            los dos verá los eventos del otro ni podrá apuntarse a ellos, salvo los que ya estén en marcha o hayan
+            acabado y a los que ya vaya, y en la ruta de un evento no veréis los mensajes del otro. No se lo decimos.
+            Si bloqueas en una ruta, el bloqueo también se guarda en tu dispositivo, que oculta sus mensajes (ese no
+            se puede quitar desde la aplicación); con quien juega sin cuenta, solo se guarda ahí.
+        </p>
+        <p>
+            <strong>Denuncias.</strong> Puedes denunciar un evento o a una persona con un motivo y, si quieres,
+            un detalle de hasta 300 caracteres. Guardamos quién denuncia, qué evento (y la cuenta de quien lo
+            organiza) o a quién (y, si lo hay, en qué evento), el motivo, el detalle, cómo la hemos resuelto y una
+            copia de lo denunciado: del evento, su título, su descripción, su portada, su día y hora, si es público
+            o privado y el apodo de quien lo organiza; de una persona, el nombre y la foto de los eventos que se
+            veían. No le decimos a nadie quién ha denunciado. Mientras una denuncia está pendiente, guardamos esa
+            foto aunque la persona la cambie, salvo que borre su cuenta. Las denuncias del chat funcionan como
+            explicamos en la sección 5.1.
+        </p>
+        <p>
+            <strong>Moderación.</strong> Los títulos, las descripciones y los apodos pasan un filtro automático
+            en el servidor que rechaza la mayoría de enlaces, correos, teléfonos, @usuarios y precios, los insultos
+            de odio y otras palabras prohibidas. Una persona revisa cada denuncia en menos de 24 horas. Si tres
+            personas distintas denuncian un evento, sale del tablón hasta que lo revisamos, y mientras tanto solo lo
+            ven quien organiza, quien va y quien ha pedido plaza. Si algo incumple las normas, podemos retirar un
+            evento (quien lo organiza ve el motivo y, si la hay, una nota nuestra) o restringir una cuenta durante un
+            tiempo: no puede organizar ni apuntarse a eventos, sus eventos programados se cancelan, sale de los de
+            otros y recibe un aviso con la fecha y el motivo. Cómo reclamar está en las
+            <a href="NormasEventos.html">normas de los eventos</a>.
+        </p>
+
+        <h3 id="rutas-normales">3.7. Lo que debes saber de las rutas normales</h3>
+        <p>
+            <strong>Tus rutas normales no están protegidas como las de los eventos: no compartas el código ni tu
+            ubicación con desconocidos.</strong>
+        </p>
+        <ul>
+            <li>Para que se pueda jugar sin cuenta, las rutas normales no están cerradas en la base de datos:
+                con conocimientos técnicos, cualquiera puede leer sus participantes (con el identificador interno
+                de su cuenta, si la tienen), sus paradas, su chat y las ubicaciones en directo, que en una ruta
+                normal se comparten siempre que la aplicación tenga el permiso de ubicación. Puede leer también el
+                identificador interno de quien creó la ruta (el de su cuenta, si la tiene) y, si se creó con una versión
+                anterior a la 1.1.0, hasta que termina, el punto desde el que se creó: si la generaste alrededor de ti, tu
+                posición en ese momento. Lo mismo pasa con la ruta abierta de un evento privado.</li>
+            <li>Quienes van a un evento tuyo pueden ver, con conocimientos técnicos, el identificador interno de
+                tu cuenta en la ruta del evento y, con él, encontrar tus rutas normales.</li>
+            <li>En la ruta abierta de un evento privado, quien ve la ficha del evento podría relacionar tu apodo
+                y tu foto de organizador con el identificador de tu cuenta, y quienes van podrían relacionar el
+                apodo de otra persona con el suyo fijándose en cuándo entra cada uno en la ruta.</li>
+        </ul>
+
+        <h2>4. Para qué usamos los datos y con qué base legal</h2>
         <ul>
             <li><strong>Prestar el servicio</strong> (ejecución del contrato): crear y compartir sesiones,
-                generar rutas, llevar la clasificación, el chat y activar y restaurar tus compras.</li>
+                generar rutas, llevar la clasificación, el chat, activar y restaurar tus compras, y los eventos:
+                publicarlos, apuntarte, enseñar a cada uno lo que le toca y avisarte.</li>
             <li><strong>Ubicación y notificaciones</strong> (consentimiento): las pide el sistema operativo y
                 puedes retirarlas en cualquier momento desde los ajustes del dispositivo.</li>
             <li><strong>Diagnóstico y seguridad</strong> (interés legítimo): detectar y corregir errores y
                 proteger el servicio frente a abusos.</li>
+            <li><strong>Saber si el tablón funciona</strong> (interés legítimo): contar cuántas inscripciones llegan
+                desde el tablón y cuántas con un enlace de invitación.</li>
+            <li><strong>Moderación de los eventos y del chat</strong> (interés legítimo y obligaciones legales):
+                filtrar los textos, revisar las denuncias, retirar lo que incumple las normas, restringir cuentas
+                y guardar las denuncias un año.</li>
             <li><strong>Publicidad</strong> (interés legítimo o consentimiento, según tu región): mostrar
                 anuncios que financian la versión gratuita. En iPhone y iPad los anuncios solo se personalizan
                 si permites el rastreo. En el Espacio Económico Europeo, el Reino Unido y Suiza, además, Google
@@ -180,104 +389,198 @@
                 sobre compras.</li>
         </ul>
 
-        <h2>4. Con quién se comparten</h2>
-        <h3>4.1. Otros participantes de tu sesión</h3>
+        <h2>5. Con quién se comparten</h2>
+        <h3>5.1. Otros participantes de tu sesión</h3>
         <p>
             Ven tu nombre, tu foto de perfil, tu progreso y puntuación, tus mensajes del chat y, mientras la
-            sesión está activa, tu posición en el mapa.
+            sesión está activa, tu posición en el mapa. En la ruta cerrada de un evento te ven con tu apodo y tu
+            foto de los eventos, y en las rutas de los eventos solo ven tu posición si la compartes: si apagas el
+            interruptor, se sigue viendo la última hasta que termina la ruta (sección 3.4). Lo que ve cada uno en los
+            eventos está en la sección 3.3.
         </p>
         <p id="normas-chat">
             En el chat no se permiten insultos, acoso, amenazas, discriminación ni contenido sexual o violento.
+            Al enviar o editar un mensaje, la aplicación tapa con asteriscos algunos insultos de odio.
             Cualquier participante puede denunciar un mensaje o bloquear a quien lo envió manteniéndolo pulsado.
             Cada denuncia o bloqueo nos llega como una denuncia con quién la hace, una copia del mensaje y quién lo
             envió, y la revisamos en menos de 24 horas: retiramos el contenido que incumpla las normas y expulsamos a
-            quien lo publicó. La lista de personas que has bloqueado se guarda solo en tu dispositivo.
+            quien lo publicó. Las personas que bloqueas se guardan en tu dispositivo y, si has iniciado sesión y la
+            otra persona también tiene cuenta, también en el servidor, y el bloqueo alcanza a los eventos
+            (sección 3.6).
         </p>
-        <h3>4.2. Proveedores que tratan datos por cuenta de CrawlQuest</h3>
+        <h3>5.2. Proveedores y servicios de terceros</h3>
         <ul>
             <li><strong>Supabase</strong>: base de datos, almacenamiento de fotos de perfil e inicio de
-                sesión. Servidores en la Unión Europea (Irlanda).</li>
-            <li><strong>Google</strong>: Google Maps Platform para buscar bares y calcular rutas, AdMob para
-                la publicidad e inicio de sesión con Google.</li>
-            <li><strong>Apple</strong>: inicio de sesión con Apple, compras dentro de la aplicación y mapas en
-                iPhone.</li>
+                sesión. Servidores en la Unión Europea (Irlanda). También ejecuta las funciones del servidor que
+                mandan las notificaciones y borran las fotos.</li>
+            <li><strong>Google</strong>: Google Maps Platform para buscar bares, sitios y ciudades y calcular
+                rutas, AdMob para la publicidad, inicio de sesión con Google y Firebase Cloud Messaging para
+                entregar las notificaciones en Android. Para la publicidad, Google usa además tus datos para sus
+                propios fines, según
+                <a href="https://policies.google.com/technologies/partner-sites?hl=es">su política</a>.</li>
+            <li><strong>Apple</strong>: inicio de sesión con Apple, compras dentro de la aplicación, mapas en
+                iPhone y Apple Push Notification service para entregar las notificaciones en iPhone y iPad.</li>
             <li><strong>Discord</strong>: inicio de sesión con Discord, solo si lo eliges.</li>
-            <li><strong>Sentry</strong>: informes de errores.</li>
-            <li><strong>Expo</strong>: envío de notificaciones push.</li>
+            <li><strong>Sentry</strong>: informes de errores y avisos de denuncias. Servidores en la Unión Europea
+                (Fráncfort, Alemania).</li>
+            <li><strong>Expo</strong>: envío de notificaciones push. Recibe el identificador de notificaciones de
+                tu dispositivo y el texto de cada aviso (sección 3.5).</li>
+            <li><strong>GitHub</strong>: aloja estas páginas, también las de los enlaces de invitación, y registra,
+                por seguridad, la dirección IP de quien las abre.</li>
         </ul>
         <p>
-            Algunos de estos proveedores pueden tratar datos fuera del Espacio Económico Europeo. En ese caso
-            las transferencias se amparan en las cláusulas contractuales tipo de la Comisión Europea o en el
-            Marco de Privacidad de Datos UE-EE. UU.
+            Expo, Google, Apple, Discord y GitHub son empresas de Estados Unidos y pueden tratar allí tus datos (Expo,
+            cada vez que te llega una notificación). Expo (650 Industries, Inc.), Google LLC, Discord, Inc. y GitHub
+            están adheridas al Marco de Privacidad de Datos UE-EE. UU. y a sus extensiones para el Reino Unido y Suiza.
+            La Comisión Europea reconoce que las empresas adheridas ofrecen un nivel de protección adecuado (decisión
+            de adecuación de 10 de julio de 2023), y el Reino Unido y Suiza reconocen sus extensiones: las
+            transferencias a esas cuatro se amparan en esas decisiones. Apple no está en la lista del Marco: según su
+            política de privacidad, sus transferencias de datos del Espacio Económico Europeo, el Reino Unido y Suiza
+            se amparan en las cláusulas contractuales tipo de la Comisión. Supabase (Supabase Pte. Ltd., de Singapur) y
+            Sentry (Functional Software, Inc., de Estados Unidos) guardan tus datos en la Unión Europea; si se accede a
+            ellos desde fuera, Supabase lo ampara en las cláusulas contractuales tipo de su acuerdo de tratamiento de
+            datos, y Sentry está adherida al Marco. Lo hemos comprobado en la lista oficial del Marco
+            (dataprivacyframework.gov) el 14 de octubre de 2026. Si quieres una copia de estas garantías, escríbenos.
         </p>
-        <h3>4.3. No vendemos tus datos</h3>
+        <h3>5.3. No vendemos tus datos</h3>
         <p>
-            No vendemos, alquilamos ni cedemos tus datos personales a terceros para sus propios fines.
+            No vendemos ni alquilamos tus datos personales. Salvo lo que recoge Google para la publicidad
+            (sección 2.7), no se los cedemos a nadie para sus propios fines.
+        </p>
+        <h3>5.4. Autoridades</h3>
+        <p>
+            Si lo exige la ley, o si hay abuso sexual de menores o un peligro para alguien, comunicamos a las
+            autoridades los datos necesarios.
         </p>
 
-        <h2>5. Cuánto tiempo los guardamos</h2>
+        <h2>6. Cuánto tiempo los guardamos</h2>
         <ul>
-            <li><strong>Ubicación durante la sesión</strong>: hasta que la sesión termina y, como máximo,
-                24 horas desde su última actualización.</li>
+            <li><strong>Ubicación durante la sesión</strong>: hasta que la sesión termina y, en cualquier caso,
+                a las 24 horas de su última actualización.</li>
             <li><strong>Sesiones sin terminar</strong>: se cierran automáticamente a las 6 horas si no llegan
                 a empezar y a las 18 horas si están en marcha.</li>
-            <li><strong>Historial de sesiones, chat, cuenta y compras</strong>: mientras mantengas tu cuenta o
-                hasta que pidas su eliminación, salvo lo que debamos conservar por obligación legal.</li>
-            <li><strong>Denuncias del chat</strong>: el tiempo necesario para revisarlas y, como máximo, un año.</li>
+            <li><strong>Rutas normales</strong>: 30 días después de que termine la ruta se borran los datos de Google
+                de sus bares: el nombre, la dirección, las coordenadas y la foto de cada parada, y el nombre y la
+                dirección de los bares en tus estadísticas. Solo se queda el identificador de cada bar en Google: cuando
+                abres esa ruta en tu historial, la aplicación le pide a Google su nombre y su dirección, y no los guarda.
+                12 meses después de que termine se borra la ruta entera: sus participantes con su nombre y su progreso,
+                su chat, sus paradas y tus estadísticas de esa ruta. Las denuncias de su chat se quedan con su copia. Si
+                tienes cuenta, tu participación, tus mensajes y tus estadísticas se borran antes si borras la cuenta. Si
+                quieres que borremos antes lo que jugaste sin cuenta, pídenoslo por correo, con el código de la ruta, el
+                día y el nombre que usaste. Las rutas de los eventos se borran antes, como se indica a
+                continuación.</li>
+            <li><strong>Cuenta y compras</strong>: mientras mantengas tu cuenta o hasta que pidas su eliminación,
+                salvo lo que debamos conservar por obligación legal.</li>
+            <li><strong>Datos de Google de un evento</strong>: el nombre, la dirección y las coordenadas del punto
+                de encuentro y de los bares de la ruta, la zona y el punto aproximado se borran 7 días después de
+                que el evento termine o se cancele. Ese día se borran también las paradas de la ruta del evento y
+                sus bares en tus estadísticas. Solo se queda el identificador de cada sitio en Google.</li>
+            <li><strong>Eventos</strong>: 30 días después de que el evento termine o se cancele se borran el
+                evento, quién iba y quién pidió plaza, sus avisos, su ruta con sus participantes, su chat y sus
+                ubicaciones, y tus estadísticas de esa ruta. Las denuncias del chat de esa ruta se quedan con su
+                copia.</li>
+            <li><strong>Rutas de eventos que no llegan a empezar</strong>: si falla algo al empezar un evento, la
+                aplicación borra la ruta a medias y, si no puede, se borra sola pasadas 24 horas.</li>
+            <li><strong>Avisos de los eventos</strong>: 30 días desde que se crean.</li>
+            <li><strong>Perfil de los eventos</strong>: mientras mantengas tu cuenta. Los bloqueos, hasta que los
+                quites o se borre una de las dos cuentas.</li>
+            <li><strong>Identificador de notificaciones</strong>: hasta que cierras sesión en ese dispositivo o lo
+                sustituye otro (sección 3.5). Si deja de valer, se desactiva y se borra a los 30 días.</li>
+            <li><strong>Fotos</strong>: las que ya no usa ningún perfil, evento ni ruta se borran cuando tienen
+                más de 30 días. Si cambias o quitas tu foto de los eventos, la anterior se borra al momento si ya no
+                se usa en ningún sitio y, si aún se usa (por ejemplo, en un evento terminado), cuando deje de usarse y
+                tenga más de 30 días.</li>
+            <li><strong>Denuncias del chat y de los eventos</strong>: un año desde que se hacen.</li>
             <li><strong>Informes de errores</strong>: durante el periodo de retención de Sentry, como máximo
                 90 días.</li>
         </ul>
+        <p>
+            Los borrados automáticos se hacen una vez al día (los de la ubicación y el cierre de las sesiones, cada
+            hora), así que cada plazo puede alargarse hasta un día (o hasta una hora).
+        </p>
 
-        <h2>6. Tus derechos</h2>
+        <h2>7. Tus derechos</h2>
         <p>
             Puedes pedir el acceso a tus datos, su rectificación o su eliminación, oponerte a su tratamiento o
             limitarlo, y recibirlos en un formato portable. También puedes retirar en cualquier momento los
             permisos de ubicación, de notificaciones y de rastreo desde los ajustes del dispositivo.
         </p>
+        <p>
+            <strong>Oponerte.</strong> Puedes oponerte en cualquier momento a lo que hacemos por interés legítimo
+            (el diagnóstico de errores, la seguridad, la moderación, saber si el tablón funciona y, según tu región,
+            la publicidad) escribiéndonos.
+        </p>
         <p id="eliminar-cuenta">
             <strong>Eliminar tu cuenta.</strong> Si has iniciado sesión, puedes borrar tu cuenta y sus datos
-            desde la aplicación, en Perfil → Cuenta → Eliminar cuenta. Se borran al momento la cuenta, las
-            compras registradas, las reglas propias, las estadísticas, los amigos y tus participaciones en las
-            sesiones, con tus mensajes del chat, y en el dispositivo se borran tu perfil, tu foto y tu historial.
-            Si tienes Premium, cancela también la suscripción en la App Store o en Google Play para que no
-            se renueve. Si no puedes acceder a la aplicación, pídelo por correo como se indica a continuación.
+            desde la aplicación, en Perfil → Cuenta → Eliminar cuenta. Primero se cancelan los eventos que tengas
+            programados como organizador y avisamos a quienes iban o habían pedido plaza; si tienes uno en marcha,
+            su ruta termina. Después se borran al momento la cuenta, las compras registradas, las reglas propias,
+            las rutas guardadas, las estadísticas, los amigos, tu perfil de los eventos, tus plazas y solicitudes
+            en los eventos de otros, los bloqueos que has hecho y los que te han hecho, tus avisos, tu
+            identificador de notificaciones y tus participaciones en las sesiones, también en las de los eventos,
+            con tus mensajes del chat. En el dispositivo se borran tu perfil, tu foto y tu historial.
+        </p>
+        <p>
+            Al borrar tu cuenta, desde la aplicación o pidiéndolo por correo, se borran también tu perfil público
+            y tus fotos: la de los eventos, las de tus rutas que subiste con la sesión iniciada y las que subiste como
+            invitado en las rutas que pasaron a tu cuenta al iniciar sesión, si nadie más las usa. Se borran
+            enseguida, aunque una copia en caché puede seguir viéndose hasta 5 minutos la de los eventos y hasta una
+            hora las de las rutas. Las demás fotos de rutas que subiste como invitado se borran cuando ya no se usan,
+            a partir de los 30 días de subirlas. Los eventos que organizaste siguen en los
+            «Pasados» de quienes iban, sin tu apodo ni tu foto, hasta que se borran a los 30 días. Las denuncias que
+            hiciste, y las que hay contra ti con la copia de lo denunciado, se guardan sin tu cuenta hasta cumplir un
+            año. Las rutas que creaste con tu cuenta siguen para los demás
+            participantes, con el identificador interno de tu cuenta como creador, hasta que se borran a los 12 meses
+            de terminar; las de los eventos, a los 30 días.
+        </p>
+        <p>
+            Si tienes Premium, cancela también la suscripción en la App Store o en Google Play para que no se
+            renueve. Si no puedes acceder a la aplicación, pídelo por correo como se indica a continuación.
         </p>
         <p>
             Para ejercer estos derechos, o para eliminar tu cuenta y todos sus datos, escríbenos a
             <a href="mailto:midwayofdraenor@gmail.com">midwayofdraenor@gmail.com</a> desde el correo asociado
             a tu cuenta o indicando el nombre que usas en la aplicación. Respondemos en un plazo máximo de un
-            mes. Si no estás de acuerdo con nuestra respuesta, puedes reclamar ante la Agencia Española de
-            Protección de Datos (<a href="https://www.aepd.es">www.aepd.es</a>).
+            mes. Puedes reclamar en cualquier momento ante la Agencia Española de Protección de Datos
+            (<a href="https://www.aepd.es">www.aepd.es</a>) o ante la autoridad de protección de datos de tu país.
         </p>
 
-        <h2>7. Seguridad</h2>
+        <h2>8. Seguridad</h2>
         <p>
-            Todas las comunicaciones con nuestros servidores van cifradas. La base de datos aplica reglas de
-            acceso por usuario: cada persona solo puede consultar sus propios datos y los de las sesiones en
-            las que participa. Aun así, ningún sistema es completamente seguro.
+            Todas las comunicaciones con nuestros servidores van cifradas. Los datos de tu cuenta (compras,
+            reglas propias, rutas guardadas, estadísticas y avisos) solo los puedes consultar tú.
+            Los eventos, los perfiles de los eventos y los bloqueos solo se leen con funciones del servidor que
+            enseñan a cada uno lo que le toca, y las denuncias no se pueden leer desde la aplicación. La ruta de un
+            evento público, y la de un privado sin entrada con el código, está cerrada a quien organiza y a quienes
+            van. Las rutas normales y la ruta abierta de un evento privado no lo están (sección 3.7). Aun así, ningún
+            sistema es completamente seguro.
         </p>
 
-        <h2>8. Menores de edad</h2>
+        <h2>9. Menores de edad</h2>
         <p>
             CrawlQuest trata sobre el consumo de alcohol y está dirigida exclusivamente a mayores de 18 años o
             de la edad legal para beber en tu país, si es mayor. No recogemos a sabiendas datos de menores; si
-            detectamos que lo hemos hecho, los eliminaremos.
+            detectamos que lo hemos hecho, los eliminaremos. Para apuntarte a un evento u organizarlo tienes que
+            declarar que tienes 18 años o más, y cualquiera puede denunciar a quien parezca menor: en la
+            aplicación, con su cuenta, o por correo.
         </p>
 
-        <h2>9. Consumo responsable</h2>
+        <h2>10. Consumo responsable</h2>
         <p>
             CrawlQuest es un juego para pasarlo bien con amigos. Bebe con moderación, respeta las leyes
-            locales y nunca conduzcas después de beber.
+            locales y nunca conduzcas después de beber. En los eventos sigue además sus
+            <a href="NormasEventos.html">normas</a>: vale sin alcohol en cualquier parada y, en los públicos, la
+            ruta reparte como mucho 2 bebidas por parada.
         </p>
 
-        <h2>10. Cambios en esta política</h2>
+        <h2>11. Cambios en esta política</h2>
         <p>
             Si cambiamos esta política, publicaremos la nueva versión en esta página con su fecha de
             actualización.
         </p>
 
         <div class="contact">
-            <h2>11. Contacto</h2>
+            <h2>12. Contacto</h2>
             <p>
                 Para cualquier pregunta sobre esta política o sobre tus datos:<br>
                 <strong>Email:</strong> <a href="mailto:midwayofdraenor@gmail.com">midwayofdraenor@gmail.com</a>
